@@ -11,21 +11,21 @@ class RestfulControllerApp < Sinatra::Base
   # GET "/music/new" - Give us a form to fill out details of a new book
   get "/music/new" do
     # some code here
+    erb :newmusic_form
   end
 
   # CREATE - where the new form POSTs to, it does the actual creating
   # POST "/music" - Create a new book, add it to our list
   post "/music" do
 
+    @music ||= Array.new
+    @music.push(newmusic_name)
+    @music # return the entire list, not the last thing pushed
+
+
   end
-    # some code here
-  # get "/music" do
-  # @music []
-  #     erb: 'index'
-  #   end
 
-
-  # SHOW - show details about just one book
+  # SHOW - show details about just one music
   # GET "/music/3" - Just get one specific book (that already exists)
   get "/music/:id" do
     @music = ["Tame Impala", "Wu Tang Clan", "The Smiths", "A Tribe Called Quest"]
@@ -37,6 +37,7 @@ class RestfulControllerApp < Sinatra::Base
   # GET "/music/3/edit" - Give us a form to edit a book's details
   get "/music/:id/edit" do
     # some code here
+    @music =
   end
 
   # UPDATE - like CREATE, this does the actual updating
