@@ -30,7 +30,6 @@ class RestfulControllerApp < Sinatra::Base
   get "/music/:id" do
     @music = ["Tame Impala", "Wu Tang Clan", "The Smiths", "A Tribe Called Quest"]
     @music = @music[params[:id].to_i - 1]
-
     # some code here
   end
 
